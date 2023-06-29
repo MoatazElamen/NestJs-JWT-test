@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-
+import { Exclude } from 'class-transformer';
 @Entity({ name: 'users' })
 export class User {
   @PrimaryGeneratedColumn({ type: 'mediumint' })
@@ -8,7 +8,7 @@ export class User {
   @Column()
   username: string;
 
-  @Column()
+  @Column({ select: false })
   password: string;
 
   @Column()
